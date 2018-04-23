@@ -16,5 +16,3 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_PASSWORD: root
             MYSQL_DATABASE: wedge
-        volumes:
-            - ../src/wordpress/database/database.sql:/docker-entrypoint-initdb.d/database.sql
