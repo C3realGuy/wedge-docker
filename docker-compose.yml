@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+    apache-php-wedge:
+        build: ./apache-php-wedge
+        volumes:
+            - ./wedge-master:/var/www/html
+        ports:
+            - 8080:80
+        depends_on:
+            - db
+    db:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: root
+            MYSQL_DATABASE: wedge
+        volumes:
+            - ../src/wordpress/database/database.sql:/docker-entrypoint-initdb.d/database.sql
